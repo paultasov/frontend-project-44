@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Brain Games is a set of five console games built on the principle of popular mobile brain-boosting applications. Each game asks questions to which you have to give correct answers.",
   "bin": {
-    "brain-games": "bin/brain-games.js"
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-even.js"
   },
   "main": "index.js",
   "scripts": {
