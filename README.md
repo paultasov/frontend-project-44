@@ -1,7 +1,5 @@
-### Hexlet tests and linter status:
+### Hexlet & Maintainability statuses:
 [![Actions Status](https://github.com/paultasov/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/paultasov/frontend-project-44/actions)
-
-### Maintainability status:
 [![Maintainability](https://api.codeclimate.com/v1/badges/522924b71ca3aa8dc417/maintainability)](https://codeclimate.com/github/paultasov/frontend-project-44/maintainability)
 
 ### Brain Even Game:
@@ -9,3 +7,6 @@
 
 ### Brain Calc Game:
 [![asciicast](https://asciinema.org/a/vc1wd98B5NNynXHiTaM8Y8W1B.svg)](https://asciinema.org/a/vc1wd98B5NNynXHiTaM8Y8W1B)
+
+### Brain GCD Game:
+[![asciicast](https://asciinema.org/a/LSqJrOniwVp6iBWfJfA6ZiQqV.svg)](https://asciinema.org/a/LSqJrOniwVp6iBWfJfA6ZiQqV)
