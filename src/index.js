@@ -66,3 +66,17 @@ export const getProgression = () => {
 
   return result;
 };
+
+// Check if given number is prime
+export const isPrimeNumber = (num) => {
+  if (num <= 1) {
+    return false;
+  }
+
+  for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};

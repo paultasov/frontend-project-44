@@ -11,7 +11,7 @@ export default (min = 1, max = 200) => {
     const secondNum = getRandomInteger(min, max);
 
     const correctAnswer = findGcd(firstNum, secondNum);
-    console.log('Correct answer ---> ', correctAnswer); // TODO delete
+    // console.log('Correct answer ---> ', correctAnswer); // TODO delete
 
     console.log(`Question: ${firstNum} ${secondNum}`);
 

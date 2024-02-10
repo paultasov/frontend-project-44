@@ -10,7 +10,7 @@ export default () => {
     const [progression, hiddenNum] = getProgression();
 
     const correctAnswer = Number(hiddenNum.join(''));
-    console.log('Correct answer ---> ', correctAnswer); // TODO delete
+    // console.log('Correct answer ---> ', correctAnswer); // TODO delete
 
     console.log(`Question: ${progression.join(' ')}`);
 
