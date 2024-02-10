@@ -39,3 +39,30 @@ export const findGcd = (a, b) => {
     b %= a;
   }
 };
+
+// Generate arithmetic progression
+export const getProgression = () => {
+  const dots = '..';
+
+  const result = [];
+  const progressionArr = [];
+
+  const firstProgressionNum = getRandomInteger(10, 40);
+  const lastProgressionNum = getRandomInteger(60, 80);
+
+  const progressionStep = getRandomInteger(2, 4);
+
+  let counter = firstProgressionNum;
+
+  while (counter <= lastProgressionNum) {
+    progressionArr.push(counter);
+    counter += progressionStep;
+  }
+
+  const hiddenIndexNum = getRandomInteger(0, progressionArr.length - 1);
+  const hiddenNum = progressionArr.splice(hiddenIndexNum, 1, dots);
+
+  result.push(progressionArr, hiddenNum);
+
+  return result;
+};
