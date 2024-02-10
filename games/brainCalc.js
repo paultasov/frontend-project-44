@@ -31,6 +31,9 @@ export default (min = 1, max = 100) => {
         // console.log('Correct answer ---> ', correctAnswer); // TODO delete
         console.log(`Question: ${firstNum} * ${secondNum}`);
         break;
+      default:
+        console.log('The math operator doesn\'t correspond to the declared one');
+        break;
     }
 
     const userAnswer = Number(readlineSync.question('Your answer: '));

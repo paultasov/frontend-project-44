@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 import sayHello from '../src/cli.js';
-import { checkTheAnswer, getRandomInteger, getProgression } from '../src/index.js';
+import { checkTheAnswer, getProgression } from '../src/index.js';
 
 export default () => {
   const userName = sayHello();

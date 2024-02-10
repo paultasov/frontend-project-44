@@ -8,35 +8,39 @@ export const getRandomInteger = (min, max) => {
 export const checkTheAnswer = (...rest) => {
   const [userAnswer, correctAnswer, gameAttempts, userName] = rest;
 
+  let boolValue;
+
   if (userAnswer === correctAnswer && gameAttempts === 3) {
     console.log('Correct!');
     console.log(`Congratulations, ${userName}!`);
-    return true;
+    boolValue = true;
   } else if (userAnswer === correctAnswer) {
     console.log('Correct!');
   } else {
     console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
     console.log(`Let's try again, ${userName}!`);
-    return false;
+    boolValue = true;
   }
+
+  return boolValue;
 };
 
 // Find the greatest common divisor
-export const findGcd = (a, b) => {
-  a = Math.abs(a);
-  b = Math.abs(b);
+export const findGcd = (firstNum, secondNum) => {
+  let firstNumber = Math.abs(firstNum);
+  let secondNumber = Math.abs(secondNum);
 
-  if (b > a) {
-    const temp = a;
-    a = b;
-    b = temp;
+  if (secondNumber > firstNumber) {
+    const temp = firstNumber;
+    firstNumber = secondNumber;
+    secondNumber = temp;
   }
 
   while (true) {
-    if (b == 0) return a;
-    a %= b;
-    if (a == 0) return b;
-    b %= a;
+    if (secondNumber === 0) return firstNumber;
+    firstNumber %= secondNumber;
+    if (firstNumber === 0) return secondNumber;
+    secondNumber %= firstNumber;
   }
 };
 
@@ -73,7 +77,7 @@ export const isPrimeNumber = (num) => {
     return false;
   }
 
-  for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+  for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i += 1) {
     if (num % i === 0) {
       return false;
     }
