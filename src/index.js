@@ -5,9 +5,7 @@ export const getRandomInteger = (min, max) => {
 };
 
 // Check user answer
-export const checkTheAnswer = (...rest) => {
-  const [userAnswer, correctAnswer, gameAttempts, userName] = rest;
-
+export const checkTheAnswer = (userAnswer, correctAnswer, gameAttempts, userName) => {
   let boolValue;
 
   if (userAnswer === correctAnswer && gameAttempts === 3) {
@@ -30,18 +28,29 @@ export const findGcd = (firstNum, secondNum) => {
   let firstNumber = Math.abs(firstNum);
   let secondNumber = Math.abs(secondNum);
 
+  let result;
+
   if (secondNumber > firstNumber) {
     const temp = firstNumber;
     firstNumber = secondNumber;
     secondNumber = temp;
   }
 
-  while (true) {
-    if (secondNumber === 0) return firstNumber;
+  while (firstNum !== 0 || secondNum !== 0) {
+    if (secondNumber === 0) {
+      result = firstNumber; break;
+    }
+
     firstNumber %= secondNumber;
-    if (firstNumber === 0) return secondNumber;
+
+    if (firstNumber === 0) {
+      result = secondNumber; break;
+    }
+
     secondNumber %= firstNumber;
   }
+
+  return result;
 };
 
 // Generate arithmetic progression

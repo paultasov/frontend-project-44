@@ -37,8 +37,6 @@ export default (min = 1, max = 100) => {
     }
 
     const userAnswer = Number(readlineSync.question('Your answer: '));
-    // TODO 1. Проработать кейс, когда значение преобразуется NaN
-    // 2. Когда значение преобразуется в 0 (при пустой строке)
 
     const result = checkTheAnswer(userAnswer, correctAnswer, gameAttempts, userName);
     if (result === false || result === true) break;
