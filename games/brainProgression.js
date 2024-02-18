@@ -1,22 +1,19 @@
-import readlineSync from 'readline-sync';
 import sayHello from '../src/cli.js';
-import { checkTheAnswer, getProgression } from '../src/index.js';
+import getProgression from '../src/getProgression.js';
+import getUserAnswer from '../src/index.js';
 
 export default () => {
   const userName = sayHello();
   console.log('What number is missing in the progression?');
 
-  for (let gameAttempts = 1; gameAttempts <= 3; gameAttempts += 1) {
-    const [progression, hiddenNum] = getProgression();
+  const showTheQuestion = () => {
+    const { progression, hiddenNum } = getProgression();
 
-    const correctAnswer = Number(hiddenNum.join(''));
-    // console.log('Correct answer ---> ', correctAnswer); // TODO delete
+    const correctAnswer = hiddenNum.join('');
+    const question = `Question: ${progression.join(' ')}`;
 
-    console.log(`Question: ${progression.join(' ')}`);
+    return { correctAnswer, question };
+  };
 
-    const userAnswer = Number(readlineSync.question('Your answer: '));
-
-    const result = checkTheAnswer(userAnswer, correctAnswer, gameAttempts, userName);
-    if (result === false || result === true) break;
-  }
+  getUserAnswer(userName, showTheQuestion);
 };
