@@ -1,9 +1,9 @@
-import sayHello from '../src/cli.js';
-import getRandomInteger from '../src/getRandomInteger.js';
-import getUserAnswer from '../src/index.js';
+import getUserName from '../cli.js';
+import getRandomInteger from '../getRandomInteger.js';
+import getUserAnswer from '../index.js';
 
-export default (min = 1, max = 20) => {
-  const userName = sayHello();
+const isEven = (min = 1, max = 20) => {
+  const userName = getUserName();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   const showTheQuestion = () => {
@@ -17,3 +17,5 @@ export default (min = 1, max = 20) => {
 
   getUserAnswer(userName, showTheQuestion);
 };
+
+export default isEven;

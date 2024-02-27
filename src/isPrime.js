@@ -1,5 +1,5 @@
 // Check if given number is prime
-export default (num) => {
+const checkIsPrime = (num) => {
   if (num <= 1) {
     return false;
   }
@@ -11,3 +11,5 @@ export default (num) => {
   }
   return true;
 };
+
+export default checkIsPrime;

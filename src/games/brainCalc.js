@@ -1,9 +1,9 @@
-import sayHello from '../src/cli.js';
-import getRandomInteger from '../src/getRandomInteger.js';
-import getUserAnswer from '../src/index.js';
+import getUserName from '../cli.js';
+import getRandomInteger from '../getRandomInteger.js';
+import getUserAnswer from '../index.js';
 
-export default (min = 1, max = 100) => {
-  const userName = sayHello();
+const calculate = (min = 1, max = 100) => {
+  const userName = getUserName();
   console.log('What is the result of the expression?');
 
   const mathOperators = ['+', '-', '*'];
@@ -39,3 +39,5 @@ export default (min = 1, max = 100) => {
 
   getUserAnswer(userName, showTheQuestion);
 };
+
+export default calculate;

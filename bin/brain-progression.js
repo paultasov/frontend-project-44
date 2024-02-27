@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import findHiddenNumInProgression from '../games/brainProgression.js';
+import findHiddenNumInProgression from '../src/games/brainProgression.js';
 
 findHiddenNumInProgression();

@@ -1,39 +1,40 @@
 import readlineSync from 'readline-sync';
+import { printSuccess, printCorrect, printTheError } from './printTheAnswers.js';
 
 // Check user answers
-const checkTheAnswer = (userAnswer, correctAnswer, gameAttempts, userName) => {
+const checkTheAnswer = (userAnswer, correctAnswer, counter, userName) => {
   let isResultOk;
 
-  if (userAnswer === correctAnswer && gameAttempts === 3) {
-    console.log('Correct!');
-    console.log(`Congratulations, ${userName}!`);
+  if (userAnswer === correctAnswer && counter === 3) {
+    printSuccess(userName);
     isResultOk = true;
   } else if (userAnswer === correctAnswer) {
-    console.log('Correct!');
+    printCorrect();
     isResultOk = true;
   } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-    console.log(`Let's try again, ${userName}!`);
+    printTheError(userName, userAnswer, correctAnswer);
     isResultOk = false;
   }
 
   return isResultOk;
 };
 
+const GAME_ATTEMPTS = 3;
+
 // Show the questions
-export default (userName, showTheQuestion) => {
-  for (let gameAttempts = 1; gameAttempts <= 3; gameAttempts += 1) {
-    const obj = showTheQuestion();
-    const { correctAnswer, question } = obj;
+const getUserAnswer = (userName, showTheQuestion) => {
+  let counter;
+
+  for (counter = 1; counter <= GAME_ATTEMPTS; counter += 1) {
+    const { correctAnswer, question } = showTheQuestion();
 
     console.log(question);
-    // console.log('Correct answer ---> ', correctAnswer); // TODO delete
 
     const userAnswer = readlineSync.question('Your answer: ');
 
-    const result = checkTheAnswer(userAnswer, correctAnswer, gameAttempts, userName);
-    if (!result) return result;
+    const result = checkTheAnswer(userAnswer, correctAnswer, counter, userName);
+    if (!result) return;
   }
-
-  return null;
 };
+
+export default getUserAnswer;

@@ -1,5 +1,5 @@
 // Find the greatest common divisor
-export default (firstNum, secondNum) => {
+const calculateGcd = (firstNum, secondNum) => {
   const firstNumber = Math.abs(firstNum);
   const secondNumber = Math.abs(secondNum);
 
@@ -10,3 +10,5 @@ export default (firstNum, secondNum) => {
 
   return result.toString();
 };
+
+export default calculateGcd;

@@ -1,29 +1,26 @@
 import getRandomInteger from './getRandomInteger.js';
 
-// Generate arithmetic progression
-export default () => {
-  const dots = '..';
+const DOTS = '..';
 
+// Generate arithmetic progression
+const getProgression = (firstTermProg, maxProgLength, progStep) => {
   const result = {};
   const progressionArr = [];
 
-  const firstProgressionNum = getRandomInteger(10, 40);
-  const lastProgressionNum = getRandomInteger(60, 80);
+  let counter = firstTermProg;
 
-  const progressionStep = getRandomInteger(2, 4);
-
-  let counter = firstProgressionNum;
-
-  while (counter <= lastProgressionNum) {
+  while (counter <= maxProgLength) {
     progressionArr.push(counter);
-    counter += progressionStep;
+    counter += progStep;
   }
 
   const hiddenIndexNum = getRandomInteger(0, progressionArr.length - 1);
-  const hiddenNum = progressionArr.splice(hiddenIndexNum, 1, dots);
+  const hiddenNum = progressionArr.splice(hiddenIndexNum, 1, DOTS);
 
   result.progression = progressionArr;
   result.hiddenNum = hiddenNum;
 
   return result;
 };
+
+export default getProgression;
