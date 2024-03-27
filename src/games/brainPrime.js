@@ -1,11 +1,26 @@
 import getUserName from '../cli.js';
 import getRandomInteger from '../getRandomInteger.js';
-import checkIsPrime from '../isPrime.js';
-import getUserAnswer from '../index.js';
+import launchTheGame from '../index.js';
 
-const isPrime = (min = 2, max = 4000) => {
+// Check if given number is prime
+const checkIsPrime = (num) => {
+  if (num <= 1) {
+    return false;
+  }
+
+  for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i += 1) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const GAME_DESCRIPTION = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const runBrainPrimeGame = (min = 2, max = 4000) => {
   const userName = getUserName();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+  console.log(GAME_DESCRIPTION);
 
   const showTheQuestion = () => {
     const randomNum = getRandomInteger(min, max);
@@ -16,7 +31,7 @@ const isPrime = (min = 2, max = 4000) => {
     return { correctAnswer, question };
   };
 
-  getUserAnswer(userName, showTheQuestion);
+  launchTheGame(userName, showTheQuestion);
 };
 
-export default isPrime;
+export default runBrainPrimeGame;

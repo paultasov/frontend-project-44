@@ -1,11 +1,25 @@
 import getUserName from '../cli.js';
 import getRandomInteger from '../getRandomInteger.js';
-import calculateGcd from '../calculateGcd.js';
-import getUserAnswer from '../index.js';
+import launchTheGame from '../index.js';
 
-const findGcd = (min = 1, max = 200) => {
+// Find the greatest common divisor
+const calculateGcd = (firstNum, secondNum) => {
+  const firstNumber = Math.abs(firstNum);
+  const secondNumber = Math.abs(secondNum);
+
+  let result = firstNumber;
+  while (firstNumber % result !== 0 || secondNumber % result !== 0) {
+    result -= 1;
+  }
+
+  return result.toString();
+};
+
+const GAME_DESCRIPTION = 'Find the greatest common divisor of given numbers.';
+
+const runBrainGcdGame = (min = 1, max = 200) => {
   const userName = getUserName();
-  console.log('Find the greatest common divisor of given numbers.');
+  console.log(GAME_DESCRIPTION);
 
   const showTheQuestion = () => {
     const firstNum = getRandomInteger(min, max);
@@ -17,7 +31,7 @@ const findGcd = (min = 1, max = 200) => {
     return { correctAnswer, question };
   };
 
-  getUserAnswer(userName, showTheQuestion);
+  launchTheGame(userName, showTheQuestion);
 };
 
-export default findGcd;
+export default runBrainGcdGame;

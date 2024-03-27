@@ -1,10 +1,12 @@
 import getUserName from '../cli.js';
 import getRandomInteger from '../getRandomInteger.js';
-import getUserAnswer from '../index.js';
+import launchTheGame from '../index.js';
 
-const isEven = (min = 1, max = 20) => {
+const GAME_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+const runBrainEvenGame = (min = 1, max = 20) => {
   const userName = getUserName();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  console.log(GAME_DESCRIPTION);
 
   const showTheQuestion = () => {
     const randomNum = getRandomInteger(min, max);
@@ -15,7 +17,7 @@ const isEven = (min = 1, max = 20) => {
     return { correctAnswer, question };
   };
 
-  getUserAnswer(userName, showTheQuestion);
+  launchTheGame(userName, showTheQuestion);
 };
 
-export default isEven;
+export default runBrainEvenGame;

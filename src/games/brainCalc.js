@@ -1,10 +1,12 @@
 import getUserName from '../cli.js';
 import getRandomInteger from '../getRandomInteger.js';
-import getUserAnswer from '../index.js';
+import launchTheGame from '../index.js';
 
-const calculate = (min = 1, max = 100) => {
+const GAME_DESCRIPTION = 'What is the result of the expression?';
+
+const runBrainCalcGame = (min = 1, max = 100) => {
   const userName = getUserName();
-  console.log('What is the result of the expression?');
+  console.log(GAME_DESCRIPTION);
 
   const mathOperators = ['+', '-', '*'];
 
@@ -37,7 +39,7 @@ const calculate = (min = 1, max = 100) => {
     return { correctAnswer, question };
   };
 
-  getUserAnswer(userName, showTheQuestion);
+  launchTheGame(userName, showTheQuestion);
 };
 
-export default calculate;
+export default runBrainCalcGame;
