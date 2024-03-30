@@ -1,6 +1,6 @@
 import getUserName from '../cli.js';
 import getRandomInteger from '../getRandomInteger.js';
-import launchTheGame from '../index.js';
+import createGameAttempts from '../createGameAttempts.js';
 
 // Check if given number is prime
 const checkIsPrime = (num) => {
@@ -13,6 +13,7 @@ const checkIsPrime = (num) => {
       return false;
     }
   }
+
   return true;
 };
 
@@ -31,7 +32,7 @@ const runBrainPrimeGame = (min = 2, max = 4000) => {
     return { correctAnswer, question };
   };
 
-  launchTheGame(userName, showTheQuestion);
+  createGameAttempts(userName, showTheQuestion);
 };
 
 export default runBrainPrimeGame;

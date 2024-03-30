@@ -1,6 +1,7 @@
 import getUserName from '../cli.js';
 import getRandomInteger from '../getRandomInteger.js';
-import launchTheGame from '../index.js';
+import createGameAttempts from '../createGameAttempts.js';
+import { DOTS } from '../constVariables.js';
 
 // Generate arithmetic progression
 const getProgression = (firstTermProg, maxProgLength, progStep) => {
@@ -16,7 +17,6 @@ const getProgression = (firstTermProg, maxProgLength, progStep) => {
 };
 
 const GAME_DESCRIPTION = 'What number is missing in the progression?';
-const DOTS = '..';
 
 const runBrainProgressionGame = () => {
   const userName = getUserName();
@@ -38,7 +38,7 @@ const runBrainProgressionGame = () => {
     return { correctAnswer, question };
   };
 
-  launchTheGame(userName, showTheQuestion);
+  createGameAttempts(userName, showTheQuestion);
 };
 
 export default runBrainProgressionGame;

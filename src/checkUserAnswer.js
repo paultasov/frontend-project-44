@@ -1,3 +1,5 @@
+import { GAME_ATTEMPTS } from './constVariables.js';
+
 // Check user answer
 const checkUserAnswer = (userAnswer, correctAnswer, counter, userName) => {
   let isResultOk;
@@ -11,7 +13,7 @@ const checkUserAnswer = (userAnswer, correctAnswer, counter, userName) => {
     isResultOk = true;
   }
 
-  if (counter === 3) {
+  if (counter === GAME_ATTEMPTS) {
     console.log(`Congratulations, ${userName}!`);
   }
 

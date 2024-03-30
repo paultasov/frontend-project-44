@@ -1,6 +1,6 @@
 import getUserName from '../cli.js';
 import getRandomInteger from '../getRandomInteger.js';
-import launchTheGame from '../index.js';
+import createGameAttempts from '../createGameAttempts.js';
 
 const GAME_DESCRIPTION = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -17,7 +17,7 @@ const runBrainEvenGame = (min = 1, max = 20) => {
     return { correctAnswer, question };
   };
 
-  launchTheGame(userName, showTheQuestion);
+  createGameAttempts(userName, showTheQuestion);
 };
 
 export default runBrainEvenGame;
